@@ -1,5 +1,6 @@
 import hashlib
 import requests
+import json
 
 import sys
 
@@ -24,9 +25,11 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 500
+    proof = 1500
     #  TODO: Your code here
-    while not self.valid_proof(block_string, proof):
+    #last_proof_string = json.dumps(last_proof, sort_keys=True).encode()
+    while not valid_proof(last_proof, proof):
+        proof += 1
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
