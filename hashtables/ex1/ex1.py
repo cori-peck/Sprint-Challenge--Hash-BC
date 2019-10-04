@@ -13,7 +13,18 @@ def get_indices_of_item_weights(weights, length, limit):
     YOUR CODE HERE
     """
 
-    return None
+    results = []
+    hash_table = {}
+
+    for c in range(0, len(weights)):
+        new = limit - weights[c]
+        hash_table[weights[c]] = new
+
+    for d in range(0, len(weights)):
+        if limit - weights[d] in hash_table:
+            results.insert(0, d)
+    
+    return results
 
 
 def print_answer(answer):
